@@ -1,12 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import ms from 'ms';
-import branches from '../data/branches';
 import APIClient from '../services/api-client';
 const apiClient = new APIClient('/GetBranchesNew');
-const useBranches = () => useQuery(['branches'], {
-    queryFn: () => apiClient.getAll({}),
+const useBranches = () => useQuery(['branches'], apiClient.getAll, {
     staleTime: ms('24h'),
-    initialData: branches,
+    // initialData: branches,
 });
 //  const useBranches = () =>
 //    useQuery({
