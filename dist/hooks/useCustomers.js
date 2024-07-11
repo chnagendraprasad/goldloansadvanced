@@ -7,16 +7,29 @@ const useCustomers = () => {
     const customerQuery = useCustomerQueryStore((s) => s.customerQuery);
     return useQuery({
         queryKey: ['customers', customerQuery],
-        queryFn: async () => {
-            const response = await apiClient.getAll({
+        queryFn: () => apiClient.getAll({
+            params: {
                 BranchId: customerQuery.branchId,
                 LoanType: customerQuery.loantypeId,
                 Ordering: customerQuery.sortOrder,
                 Search: customerQuery.searchText,
-            });
-            return response;
-        },
+            }
+        }),
         staleTime: ms('24h'),
     });
 };
+//   return useQuery<FetchResponse<Customer>, Error>({
+//     queryKey: ['customers', customerQuery],
+//     queryFn: async () => {
+//       const response = await apiClient.getAll({
+//         BranchId: customerQuery.branchId,
+//         LoanType: customerQuery.loantypeId,
+//         Ordering: customerQuery.sortOrder,
+//         Search: customerQuery.searchText,
+//       });
+//       return response;
+//     },
+//     staleTime: ms('24h'),
+//   });
+// };
 export default useCustomers;

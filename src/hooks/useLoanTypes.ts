@@ -8,12 +8,18 @@ const apiClient = new APIClient<LoanType>(
   '/GetLoanTypesNew'
 );
 
+// const useLoanTypes = () =>
+//   useQuery({
+//     queryKey: ['loantypes'],
+//     queryFn: apiClient.getAll,
+//     staleTime: ms('24h'),
+//     initialData: loantypes,
+//   });
+
 const useLoanTypes = () =>
-  useQuery({
-    queryKey: ['loantypes'],
-    queryFn: apiClient.getAll,
+  useQuery(['loantypes'], apiClient.getAll, {
     staleTime: ms('24h'),
-    initialData: loantypes,
+   // initialData: loantypes,
   });
 
 export default useLoanTypes;

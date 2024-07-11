@@ -3,9 +3,15 @@ import ms from 'ms';
 import loantypes from '../data/loantypes';
 import APIClient from '../services/api-client';
 const apiClient = new APIClient('/GetLoanTypesNew');
-const useLoanTypes = () => useQuery({
-    queryKey: ['loantypes'],
-    queryFn: apiClient.getAll,
+// const useLoanTypes = () =>
+//   useQuery({
+//     queryKey: ['loantypes'],
+//     queryFn: apiClient.getAll,
+//     staleTime: ms('24h'),
+//     initialData: loantypes,
+//   });
+const useLoanTypes = () => useQuery(['loantypes'], {
+    queryFn: () => apiClient.getAll({}),
     staleTime: ms('24h'),
     initialData: loantypes,
 });

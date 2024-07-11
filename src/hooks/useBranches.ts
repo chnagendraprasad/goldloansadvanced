@@ -6,13 +6,19 @@ import Branch from '../entities/Branch';
 
 const apiClient = new APIClient<Branch>('/GetBranchesNew');
 
- const useBranches = () =>
-   useQuery({
-     queryKey: ['branches'],
-     queryFn: apiClient.getAll,
-     staleTime: ms('24h'),
-     initialData: branches,
-   });
+const useBranches = () =>
+  useQuery(['branches'], apiClient.getAll, {
+    staleTime: ms('24h'),
+   // initialData: branches,
+  });
+
+//  const useBranches = () =>
+//    useQuery({
+//      queryKey: ['branches'],
+//      queryFn: apiClient.getAll,
+//      staleTime: ms('24h'),
+//      initialData: branches,
+//    });
 
 // const useBranches = () => {
 //   return useQuery<FetchResponse<Branch>, Error>({
