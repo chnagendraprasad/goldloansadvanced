@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  // "scripts": {
+  //   "dev": "vite",
+  //   "build": "tsc && vite build",
+  //   "preview": "vite preview"
+  // },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
+  "build": "react-scripts build" // for a React app
+},
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
