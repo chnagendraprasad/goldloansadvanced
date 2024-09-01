@@ -3,13 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  // "scripts": {
-  //   "dev": "vite",
-  //   "build": "tsc && vite build",
-  //   "preview": "vite preview"
-  // },
   "scripts": {
-  "build": "react-scripts build" // for a React app
+  "build": "react-scripts build" 
 },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
