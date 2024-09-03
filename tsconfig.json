@@ -2,7 +2,7 @@
   "compilerOptions": {
     "noEmitOnError": false,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noImplicitAny": false,
     "outDir": "./dist",
     "target": "ESNext",
@@ -24,10 +24,6 @@
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
   "include": [
     "src"
   ],
