@@ -30,7 +30,7 @@ class APIClient<T> {
 
   getAll = (config: AxiosRequestConfig) => {
     return axiosInstance
-      .post<FetchResponse<T>>(this.endpoint, config)
+      .post<FetchResponse<T>>(this.endpoint, config.params)
       .then((res) => res.data);
   };
 
